@@ -6,8 +6,7 @@ export default function Results(props) {
 
   const [apiResult, setApiResult] = React.useState({responseData:null,ready:false})
 
-  // const url = "https://www.omdbapi.com/?i=tt3896198&apikey=eec8ecd0";
-  const url = "https://www.omdbapi.com/?apikey=eec8ecd0&s=batman";
+  const url = `https://www.omdbapi.com/?apikey=${process.env.REACT_APP_OMDB_API_KEY}&s=batman`;
 
   React.useEffect(() => {
     fetchApi()
@@ -19,9 +18,7 @@ export default function Results(props) {
     setApiResult({responseData:data.Search,ready:true});
   }
 
-// console.log(apiResult.responseData)
-
-let films = apiResult.ready ? apiResult.responseData.map((film, i) => {
+const films = apiResult.ready ? apiResult.responseData.map((film, i) => {
   return <FilmCard
   film={film}
   key={i}/>
