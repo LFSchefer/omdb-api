@@ -3,8 +3,6 @@ import "./FilmCard.css"
 
 export default function FilmCard(props) {
 
-  // console.log(props.film)
-  
   return(
     <>
     <div className="film-card">
