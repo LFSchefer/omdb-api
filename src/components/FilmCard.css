@@ -1,0 +1,19 @@
+.film-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #d6d6d6;
+  width: 350px;
+  height: fit-content;
+  margin: 50px auto;
+  padding: 36px;
+}
+
+.type-year {
+  display: flex;
+}
+
+.type-year * {
+  margin: 12px;
+}
