@@ -43,8 +43,6 @@ export default function Search(props) {
     </select>
   </form>
 
-
-
   return(
     <>
     <h1>Search</h1>

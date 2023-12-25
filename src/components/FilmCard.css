@@ -17,3 +17,8 @@
 .type-year * {
   margin: 12px;
 }
+
+.more {
+  text-decoration: underline;
+  cursor: pointer;
+}

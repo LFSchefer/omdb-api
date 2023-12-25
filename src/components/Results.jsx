@@ -2,7 +2,6 @@ import * as React from "react";
 import "./Results.css";
 import FilmCard from "./FilmCard";
 
-
 export default function Results(props) {
 
   const [ready, setReady] = React.useState(true)
@@ -45,11 +44,15 @@ export default function Results(props) {
     }
   };
 
+  const showDetail = data => {
+    console.log(data)
+  };
 
   const films = apiResult.responseData.map((film, i) => {
     return <FilmCard
     film={film}
-    key={i}/>
+    key={i}
+    handleClick={showDetail}/>
   })
 
   const textResult = ready ? <h3>Results:</h3> : <div><h3>No match</h3><hr /><h5>Your previous résutls</h5></div>;
@@ -59,8 +62,6 @@ export default function Results(props) {
     <p>Pages: {pageNumb}</p>
     <div className="btn" onClick={incrementPage}>Next page</div>
   </div>
-
-  console.log(pageNumb)
 
   return(
     <>
