@@ -1,0 +1,25 @@
+.film-details {
+  background-color: #d6d6d6;
+  width: 65%;
+  height: fit-content;
+  margin: 50px auto;
+  padding: 40px 18px;
+  border-radius: 12px;
+  border: 1px solid #c3c3c3;
+  box-shadow: 0px 0px 18px 0px rgba(0,0,0,0.15);
+}
+
+.details {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.infos-details * {
+  display: flex;
+  justify-content: flex-start;
+}
+
+img {
+  max-height: 100vh;
+}

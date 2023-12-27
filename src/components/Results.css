@@ -6,13 +6,24 @@
 }
 
 .btn {
-  background-color: #d6d6d6;
+  background-color:#d6d6d6;
   padding: 6px 12px;
   cursor: pointer;
   margin: 0 18px;
   width: fit-content;
+  border-radius: 6px;
+  border: 1px solid #c3c3c3;
+  box-shadow: 0px 0px 8px 0px rgba(0,0,0,0.1);
 }
 
 .back-btn {
   margin: 16px auto;
+}
+
+.results-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2%;
+  width: 85%;
+  margin: 50px auto;
 }

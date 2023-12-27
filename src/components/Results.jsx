@@ -41,12 +41,14 @@ export default function Results(props) {
 
   const incrementPage = () => {
     setPageNumb(prev => prev + 1);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   const decrementPage = () => {
     if (pageNumb>1) {
       setPageNumb(prev => prev -1);
     };
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   const showDetail = data => {
@@ -83,20 +85,22 @@ export default function Results(props) {
 
   const btnPages = <div className="btn-container">
     <div className="btn" onClick={decrementPage}>Previous page</div>
-    <p>Pages: {pageNumb}</p>
+    <p>Page: {pageNumb}</p>
     <div className="btn" onClick={incrementPage}>Next page</div>
   </div>
 
 const display = details.displayDetails ?
 <>
-<div className="btn back-btn" onClick={backToSearch}>Back to results</div>
+<div className="btn back-btn" onClick={backToSearch}> Back to results</div>
  <FilmDetail
  film={details.data}/>
 </>
  :
 <>{textResult}
 {btnPages}
-{films}</>;
+<div className="results-container">
+{films}</div>
+{btnPages}</>;
 
   return(
     <>
