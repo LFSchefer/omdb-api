@@ -6,6 +6,7 @@ function App() {
   return (
     <div className="App">
       <Search/>
+      <div className='footer'></div>
     </div>
   );
 }

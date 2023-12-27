@@ -30,18 +30,23 @@ export default function Search(props) {
   };
 
   const searchForm =
-  <form action="">
-    <label htmlFor="">Title:</label>
-    <input type="text" name="search" placeholder="Batman" onChange={(event) => inputTitle(event.target.value)} value={formInput.searchText}/>
-    <label htmlFor="">Year:</label>
-    <input type="text" name="year" placeholder="2014" onChange={(event) => inputYear(event.target.value)} value={formInput.year}/>
-    <label htmlFor="">Type:</label>
-    <select name="type" onChange={(event) => inputType(event.target.value)} value={formInput.type}>
-      <option value="movie">movie</option>
-      <option value="series">series</option>
-      <option value="episode">episode</option>
-    </select>
-  </form>
+  <div className="form-container">
+    <form action="">
+      <div className="title-input">
+        <label htmlFor="">Title:</label>
+        <input type="text" name="search" placeholder="Ex: Batman" onChange={(event) => inputTitle(event.target.value)} value={formInput.searchText}/>
+      </div>
+      <div className="secondary-input">
+        <label htmlFor="">Year:</label>
+        <input type="text" name="year" placeholder="Ex: 2014" onChange={(event) => inputYear(event.target.value)} value={formInput.year}/>
+        <label htmlFor="">Type:</label>
+        <select name="type" onChange={(event) => inputType(event.target.value)} value={formInput.type}>
+          <option value="movie">movie</option>
+          <option value="series">series</option>
+      </select>
+      </div>
+    </form>
+  </div>
 
   return(
     <>
