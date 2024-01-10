@@ -6,7 +6,7 @@ import FilmDetail from "./FilmDetail";
 export default function Results(props) {
 
   const [ready, setReady] = React.useState(true)
-  const [apiResult, setApiResult] = React.useState({responseData:[], ready: true})
+  const [apiResult, setApiResult] = React.useState({responseData:[], ready: true, totalResults: 12})
   const [pageNumb, setPageNumb] = React.useState(1)
   const [details, setDetails] = React.useState({displayDetails: false, filmId: '', data:{}})
 
@@ -25,7 +25,7 @@ export default function Results(props) {
         setReady(false);
       }
       else {
-        setApiResult({responseData:data.Search});
+        setApiResult({responseData:data.Search, totalResults:data.totalResults});
         setReady(true);
         setDetails(prev => {
           return {...prev, displayDetails: false}
@@ -83,24 +83,30 @@ export default function Results(props) {
 
   const textResult = ready ? <h3>Results:</h3> : <div><h3>No match</h3><hr /><h5>Your previous résutls</h5></div>;
 
-  const btnPages = <div className="btn-container">
+  const btnPages = apiResult.totalResults > 10 ?
+  <div className="btn-container">
     <div className="btn" onClick={decrementPage}>Previous page</div>
     <p>Page: {pageNumb}</p>
     <div className="btn" onClick={incrementPage}>Next page</div>
   </div>
+  :
+  <>
+  </>
 
-const display = details.displayDetails ?
-<>
-<div className="btn back-btn" onClick={backToSearch}> Back to results</div>
- <FilmDetail
- film={details.data}/>
-</>
- :
-<>{textResult}
-{btnPages}
-<div className="results-container">
-{films}</div>
-{btnPages}</>;
+  const display = details.displayDetails ?
+  <>
+  <div className="btn back-btn" onClick={backToSearch}> Back to results</div>
+  <FilmDetail
+  film={details.data}/>
+  </>
+  :
+  <>
+  {textResult}
+  {btnPages}
+  <div className="results-container">
+  {films}</div>
+  {btnPages}
+  </>;
 
   return(
     <>
